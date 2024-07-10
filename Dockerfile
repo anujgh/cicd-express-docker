@@ -1,7 +1,9 @@
-From node:20.12.2
+FROM node:20.12.2
 WORKDIR /app
+COPY ./package.json ./
+COPY ./package-lock.json ./
+RUN  npm install
 
-COPY . .
-RUN npm install
-
-CMD ["npm", "start"]
+COPY ./src ./src
+EXPOSE 3000
+CMD [ "npm", "start" ]

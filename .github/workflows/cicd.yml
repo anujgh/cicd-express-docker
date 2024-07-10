@@ -1,0 +1,19 @@
+name: Deploy Node Application
+
+on:
+  push:
+    branches: 
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout serice
+        uses: actions/checkout@v4
+      - name: Login to Docker Hub
+        run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASS}}
+      - name: Build docker image
+        run: docker build -t 27anujsharma/cicd-node-docker .
+      - name: Publish image to docker hub
+        run: docker push 27anujsharma/cicd-node-docker:latest
