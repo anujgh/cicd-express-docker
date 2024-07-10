@@ -23,8 +23,8 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Pull image from docker hub
-        run: docker pull 27anujsharma/cicd-node-docker:latest
+        run: sudo docker pull 27anujsharma/cicd-node-docker:latest
       - name: Delete old container
-        run: docker rm -f nodejs-app-container
+        run: sudo docker rm -f nodejs-app-container
       - name: Run docker conntainer
-        run: dockerf run -d -p 3000:3000 -name nodejs-app-container 27anujsharma/cicd-node-docker
+        run: sudo dockerf run -d -p 3000:3000 -name nodejs-app-container 27anujsharma/cicd-node-docker
