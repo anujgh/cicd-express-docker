@@ -124,3 +124,14 @@ jobs:
 24. In detail copy the dns from detail of load balancer.
 25. Run it in browser.
 ##  Things are done on AWS-ECS. Congrats ! :-)
+
+## Delete the ECS services.
+1. Go to the Service update. 
+2. Set Desired Rasks = 0
+3. Check the checkbox named Force New Deploy
+4. Click update. And Check the task list. If all tasks deleted. Then delete the service.
+5. Check Load balancer in EC2 section. and delete load balancer.
+6. Check Target group in EC2 dashboard. and delete all target groups.
+7. Check Security Groups and delete all.
+8. Chack Task defination and click them. Delete all tasks and task definition.
+9. check ECR list and delete all repos.
