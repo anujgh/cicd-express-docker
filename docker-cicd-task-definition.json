@@ -1,13 +1,13 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:016248607242:task-definition/docker-node-cicd-task-definition:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:016248607242:task-definition/my-node-app-docker-task-definition:1",
     "containerDefinitions": [
         {
-            "name": "node-docker-cicd",
-            "image": "016248607242.dkr.ecr.ap-south-1.amazonaws.com/my-docker-cicd",
+            "name": "my-node-app-docker-container",
+            "image": "016248607242.dkr.ecr.ap-south-1.amazonaws.com/my-node-repo",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "node-docker-cicd-3000-tcp",
+                    "name": "my-node-app-docker-container-3000-tcp",
                     "containerPort": 3000,
                     "hostPort": 3000,
                     "protocol": "tcp",
@@ -23,7 +23,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/docker-node-cicd-task-definition",
+                    "awslogs-group": "/ecs/my-node-app-docker-task-definition",
                     "awslogs-create-group": "true",
                     "awslogs-region": "ap-south-1",
                     "awslogs-stream-prefix": "ecs"
@@ -33,16 +33,16 @@
             "healthCheck": {
                 "command": [
                     "CMD-SHELL",
-                    "curl -f http://localhost:3000/health || exit 1"
+                    "curl -f http://localhost/ || exit 1"
                 ],
-                "interval": 30,
+                "interval": 60,
                 "timeout": 5,
                 "retries": 3
             },
             "systemControls": []
         }
     ],
-    "family": "docker-node-cicd-task-definition",
+    "family": "my-node-app-docker-task-definition",
     "executionRoleArn": "arn:aws:iam::016248607242:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "revision": 1,
@@ -94,7 +94,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-07-23T05:36:29.997Z",
+    "registeredAt": "2024-07-23T07:28:29.008Z",
     "registeredBy": "arn:aws:iam::016248607242:root",
     "tags": []
 }
