@@ -70,4 +70,4 @@ This repo has nodejs express project. We created docker image from it and deploy
 
 10. Don't forgot to add running port no accessable for everyone in EC2 security group > Inbound rules.
 
-##  Things are done. Congrats ! ;-)
+##  Things are done. Congrats ! :-)
